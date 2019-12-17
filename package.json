@@ -1,0 +1,42 @@
+{
+  "name": "RakutenRecipeSearch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "stylelint": "stylelint --fix ./scss/*",
+    "develop": "NODE_ENV=development webpack --watch --colors --config ./webpack.config.js & onchange './scss/**/*.scss' -- npm run stylelint & gulp",
+    "build": "NODE_ENV=production webpack --colors --config ./webpack.config.js"
+  },
+  "repository": "https://github.com/y-endo/RakutenRecipeSearch.git",
+  "author": "YukiEndo",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-sass": "^4.0.2",
+    "onchange": "^6.1.0",
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.13.0",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
