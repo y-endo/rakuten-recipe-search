@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`カテゴリーアイテムが正しく表示されるか 1`] = `
+<li
+  className="recipe-list__item"
+>
+  <Link
+    className="recipe-list__link"
+    to="/category/10"
+  >
+    カテゴリー名
+  </Link>
+</li>
+`;

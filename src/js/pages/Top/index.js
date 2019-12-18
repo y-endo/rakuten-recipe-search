@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Title from '@/js/components/Title/index';
+import CategoryList from '@/js/components/CategoryList/index';
 
 export default class Top extends React.Component {
   constructor(props) {
@@ -9,23 +10,17 @@ export default class Top extends React.Component {
   }
 
   render() {
-    const categoryListItems = this.props.recipeCategoryList.map((data, index) => {
-      return (
-        <li key={index} className="recipe-list__item">
-          <Link to={`/category/${data.categoryId}`} className="recipe-list__link">
-            {data.categoryName}
-          </Link>
-        </li>
-      );
-    });
-
     return (
       <section className="content">
         <div className="content__inner">
           <Title title="トップページ" />
-          <ul className="recipe-list">{categoryListItems}</ul>
+          <CategoryList recipeCategoryListData={this.props.recipeCategoryListData} />
         </div>
       </section>
     );
   }
 }
+
+Top.propTypes = {
+  recipeCategoryListData: PropTypes.array
+};

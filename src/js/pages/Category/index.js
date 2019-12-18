@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Title from '@/js/components/Title/index';
+import RankingArticle from '@/js/components/RankingArticle/index';
 
 export default class Category extends React.Component {
   constructor(props) {
@@ -28,35 +30,10 @@ export default class Category extends React.Component {
 
   render() {
     const rankingArticles = this.state.recipeRankingList.map((data, index) => {
-      return (
-        <article key={index} className="ranking-article">
-          <div className="ranking-article__image-container">
-            <img src={data.mediumImageUrl} alt="" className="ranking-article__image" />
-          </div>
-          <div className="ranking-article__detail">
-            <h3 className="ranking-article__title">{data.recipeTitle}</h3>
-            <p className="ranking-article__description">{data.recipeDescription}</p>
-            <div className="ranking-article__material">
-              <p>材料</p>
-              <ul className="ranking-article__material-list">
-                {data.recipeMaterial.map((material, index) => {
-                  return (
-                    <li key={index} className="ranking-article__material-list-item">
-                      {material}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <a href={data.recipeUrl} target="_blank" className="ranking-article__link">
-              詳しく見る
-            </a>
-          </div>
-        </article>
-      );
+      return <RankingArticle key={index} recipeData={data} />;
     });
 
-    const categoryName = this.props.categoryNames[this.props.match.params.id];
+    const categoryName = this.props.recipeCategoryNames[this.props.match.params.id];
 
     return (
       <section className="content">
@@ -68,3 +45,8 @@ export default class Category extends React.Component {
     );
   }
 }
+
+Category.propTypes = {
+  match: PropTypes.object,
+  recipeCategoryNames: PropTypes.object
+};

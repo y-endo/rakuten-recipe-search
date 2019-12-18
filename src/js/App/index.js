@@ -9,8 +9,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      recipeCategoryList: [],
-      categoryNames: {}
+      recipeCategoryListData: [],
+      recipeCategoryNames: {}
     };
   }
 
@@ -19,7 +19,7 @@ export default class App extends React.Component {
   }
 
   async getData() {
-    const recipeCategoryList = await fetch(
+    const recipeCategoryListData = await fetch(
       'https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=1040081562719060244&format=json&formatVersion=2&categoryType=large'
     )
       .then(response => response.json())
@@ -28,12 +28,12 @@ export default class App extends React.Component {
       })
       .catch(() => []);
 
-    const categoryNames = {};
-    recipeCategoryList.forEach(data => {
-      categoryNames[data.categoryId] = data.categoryName;
+    const recipeCategoryNames = {};
+    recipeCategoryListData.forEach(data => {
+      recipeCategoryNames[data.categoryId] = data.categoryName;
     });
 
-    this.setState({ recipeCategoryList, categoryNames });
+    this.setState({ recipeCategoryListData, recipeCategoryNames });
 
     console.log(this.state);
   }
@@ -41,8 +41,12 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route exact path="/" render={() => <Top recipeCategoryList={this.state.recipeCategoryList} />}></Route>
-        <Route exact path="/category/:id" render={routeProps => <Category categoryNames={this.state.categoryNames} {...routeProps} />}></Route>
+        <Route exact path="/" render={() => <Top recipeCategoryListData={this.state.recipeCategoryListData} />}></Route>
+        <Route
+          exact
+          path="/category/:id"
+          render={routeProps => <Category recipeCategoryNames={this.state.recipeCategoryNames} {...routeProps} />}
+        ></Route>
       </Router>
     );
   }

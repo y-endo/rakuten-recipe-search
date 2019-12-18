@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`カテゴリーリストが正しく表示されるか 1`] = `
+<ul
+  className="recipe-list"
+>
+  <CategoryItem
+    key="0"
+    recipeCategoryData={
+      Object {
+        "categoryId": 10,
+        "categoryName": "カテゴリー1",
+      }
+    }
+  />
+  <CategoryItem
+    key="1"
+    recipeCategoryData={
+      Object {
+        "categoryId": 20,
+        "categoryName": "カテゴリー2",
+      }
+    }
+  />
+  <CategoryItem
+    key="2"
+    recipeCategoryData={
+      Object {
+        "categoryId": 30,
+        "categoryName": "カテゴリー3",
+      }
+    }
+  />
+  <CategoryItem
+    key="3"
+    recipeCategoryData={
+      Object {
+        "categoryId": 40,
+        "categoryName": "カテゴリー4",
+      }
+    }
+  />
+</ul>
+`;

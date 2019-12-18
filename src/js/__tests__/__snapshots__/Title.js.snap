@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`タイトルのテキストが正しく表示されるか 1`] = `
+<h1
+  className="title"
+>
+  タイトル
+</h1>
+`;
+
+exports[`タイトルのテキストが正しく表示されるか 2`] = `
+<h1
+  className="title"
+>
+  テスト
+</h1>
+`;
