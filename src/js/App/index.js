@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import key from '@/js/constants/key';
 
 import Top from '@/js/pages/Top/index';
 import Category from '@/js/pages/Category/index';
@@ -20,7 +21,7 @@ export default class App extends React.Component {
 
   async getData() {
     const recipeCategoryListData = await fetch(
-      'https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=1040081562719060244&format=json&formatVersion=2&categoryType=large'
+      `https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=${key}&format=json&formatVersion=2&categoryType=large`
     )
       .then(response => response.json())
       .then(json => {

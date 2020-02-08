@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import key from '@/js/constants/key';
 
 import Title from '@/js/components/Title/index';
 import RankingArticle from '@/js/components/RankingArticle/index';
@@ -19,7 +20,7 @@ export default class Category extends React.Component {
 
   getData() {
     fetch(
-      `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1040081562719060244&format=json&formatVersion=2&categoryId=${this.props.match.params.id}`
+      `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=${key}&format=json&formatVersion=2&categoryId=${this.props.match.params.id}`
     )
       .then(response => response.json())
       .then(json => {
